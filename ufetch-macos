@@ -43,8 +43,8 @@ reset="$(tput sgr0)"
 # you can change these
 lc="${reset}${bold}"		# labels
 nc="${reset}${bold}"		# user and hostname
-ic="${reset}"				# info
-c0="${reset}"				# first color
+ic="${reset}"			# info
+c0="${reset}"			# first color
 
 ## OUTPUT
 
