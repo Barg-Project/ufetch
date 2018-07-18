@@ -44,7 +44,7 @@ reset="$(tput sgr0)"
 # you can change these
 lc="${reset}${bold}${blue}"		# labels
 nc="${reset}${bold}${blue}"		# user and hostname
-ic="${reset}${bold}${white}"	# info
+ic="${reset}${bold}${white}"		# info
 c0="${reset}${white}"			# first color
 
 ## OUTPUT
