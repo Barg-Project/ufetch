@@ -9,13 +9,13 @@ host="$(hostname)"
 os="$(sw_vers -productName) $(sw_vers -productVersion)"
 kernel="$(uname -sr)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
-if command -v pkgin &> /dev/null; then
+if [ -x "$(command -v pkgin)" ]; then
 	packages="$(pkgin list | wc -l)"
-elif command -v brew &> /dev/null; then
+elif [ -x "$(command -v brew)" ]; then
 	brew_packages="$(brew list | wc -l)"
 	cask_packages="$(brew cask list 2> /dev/null | wc -l)"
 	packages="$(( ${brew_packages} + ${cask_packages} ))"
-elif command -v port &> /dev/null; then
+elif [ -x "$(command -v port)" ]; then
 	packages="$(port installed | wc -l)"
 else
 	packages='no package manager'
@@ -29,22 +29,24 @@ fi
 ## DEFINE COLORS
 
 # probably don't change these
-bold="$(tput bold)"
-black="$(tput setaf 0)"
-red="$(tput setaf 1)"
-green="$(tput setaf 2)"
-yellow="$(tput setaf 3)"
-blue="$(tput setaf 4)"
-magenta="$(tput setaf 5)"
-cyan="$(tput setaf 6)"
-white="$(tput setaf 7)"
-reset="$(tput sgr0)"
+if [ -x "$(command -v tput)" ]; then
+	bold="$(tput bold)"
+	black="$(tput setaf 0)"
+	red="$(tput setaf 1)"
+	green="$(tput setaf 2)"
+	yellow="$(tput setaf 3)"
+	blue="$(tput setaf 4)"
+	magenta="$(tput setaf 5)"
+	cyan="$(tput setaf 6)"
+	white="$(tput setaf 7)"
+	reset="$(tput sgr0)"
+fi
 
 # you can change these
 lc="${reset}${bold}"		# labels
 nc="${reset}${bold}"		# user and hostname
-ic="${reset}"				# info
-c0="${reset}"				# first color
+ic="${reset}"			# info
+c0="${reset}"			# first color
 
 ## OUTPUT
 

@@ -30,24 +30,26 @@ fi
 ## DEFINE COLORS
 
 # probably don't change these
-bold="$(tput bold)"
-black="$(tput setaf 0)"
-red="$(tput setaf 1)"
-green="$(tput setaf 2)"
-yellow="$(tput setaf 3)"
-blue="$(tput setaf 4)"
-magenta="$(tput setaf 5)"
-cyan="$(tput setaf 6)"
-white="$(tput setaf 7)"
-reset="$(tput sgr0)"
+if [ -x "$(command -v tput)" ]; then
+	bold="$(tput bold)"
+	black="$(tput setaf 0)"
+	red="$(tput setaf 1)"
+	green="$(tput setaf 2)"
+	yellow="$(tput setaf 3)"
+	blue="$(tput setaf 4)"
+	magenta="$(tput setaf 5)"
+	cyan="$(tput setaf 6)"
+	white="$(tput setaf 7)"
+	reset="$(tput sgr0)"
+fi
 
 # you can change these
-lc="${reset}${bold}${yellow}"	# labels
-nc="${reset}${bold}${yellow}"	# user and hostname
-ic="${reset}${bold}${white}"	# info
+lc="${reset}${bold}${yellow}"		# labels
+nc="${reset}${bold}${yellow}"		# user and hostname
+ic="${reset}${bold}${white}"		# info
 c0="${reset}${yellow}"			# first color
 c1="${reset}${white}"			# second color
-c2="${reset}${bold}${yellow}"	# third color
+c2="${reset}${bold}${yellow}"		# third color
 
 
 ## OUTPUT
