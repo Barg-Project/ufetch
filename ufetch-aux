@@ -1,38 +1,36 @@
 #!/bin/sh
 #
-# ufetch-aux - tiny system info for aux
+# ufetch-aux - tiny system info for a/ux
 
 ## INFO
-# NOTE: you should have bash installed, and you should modify
-#       the path appropriately.
 
 # user is already defined
 host=`hostname`
 os=`uname -sr`
 kernel=`uname -v`
-uptime=`uptime | awk '{print "Up "$3" "$4}'|tr -d ,`
+uptime=`uptime | awk '{print $3" "$4}' | tr -d ,`
 shell=`basename ${SHELL}`
-sar=`sar|grep  Average| awk '{print $1" %usr:"$2" %sys:"$3" %wio:"$4" %idle:"$4}'`
 
-#DEFINE COLORS
+## DEFINE COLORS
+
+# probably don't change these
 bold=`tput bold`
 reset=`tput sgr0`
 
-
 # you can change these
-lc="${reset}${bold}"		# labels
-nc="${reset}"               # not labels
+lc="${reset}${bold}"	# labels
+nc="${reset}${bold}"	# user and hostname
+ic="${reset}"			# info
+c0="${reset}"			# first color
 
 ## OUTPUT
+
 echo "
-
-${nc}         (/     ${nc}${USER}${lc}@${nc}${host}${reset}
-${nc}    .---__--.   ${lc}OS:        ${lc}${os}${reset}
-${nc}   /         \  ${lc}KERNEL:    ${lc}${kernel}${reset}
-${nc}  |         /   ${lc}UPTIME:    ${lc}${uptime}${reset}
-${nc}  |         \\_   ${lc}SHELL:     ${lc}${shell}${reset}  
-${nc}   \         /  ${lc}SAR:       ${lc}${sar}${reset}
-${nc}    \`._.-._.\`    
-
-
-
+${c0}         (/
+${c0}    .---__--.   ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}   /         \  ${lc}OS:        ${ic}${os}${reset}
+${c0}  |         /   ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0}  |         \\_  ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}   \         /  ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}    \`._.-._.\`
+"
