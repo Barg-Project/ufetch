@@ -28,9 +28,9 @@ c0="${reset}"			# first color
 echo "
 ${c0}         (/
 ${c0}    .---__--.   ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}   /         \  ${lc}OS:        ${ic}${os}${reset}
-${c0}  |         /   ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}  |         \\_  ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}   \         /  ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}   /         \  ${lc}OS:      ${ic}${os}${reset}
+${c0}  |         /   ${lc}KERNEL:  ${ic}${kernel}${reset}
+${c0}  |         \\_  ${lc}UPTIME:  ${ic}${uptime}${reset}
+${c0}   \         /  ${lc}SHELL:   ${ic}${shell}${reset}
 ${c0}    \`._.-._.\`
 "
