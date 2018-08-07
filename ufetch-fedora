@@ -47,18 +47,19 @@ fi
 lc="${reset}${bold}${blue}"		# labels
 nc="${reset}${bold}${blue}"		# user and hostname
 ic="${reset}${bold}${white}"		# info
-c0="${reset}${white}"			# first color
+c0="${reset}${bold}${white}"		# first color
+c1="${reset}${bold}${cyan}"		# second color
 
 ## OUTPUT
 
 cat <<EOF
-${c0}       _____
-${c0}      /   __/  ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}     |  /      ${lc}OS:        ${ic}${os}${reset}
-${c0}    _|  |_     ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}   |_    _|    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}     |  |      ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c0}   __/  |      ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}  /____/       ${lc}${envtype}        ${ic}${WM}${reset}
+${c0}        _____
+${c0}       /   __)${c1}\\   ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}       |  /  ${c1}\\ \\  ${lc}OS:        ${ic}${os}${reset}
+${c1}    __${c0}_|  |_${c1}_/ /  ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c1}   / ${c0}(_    _)${c1}_/   ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c1}  / /  ${c0}|  |       ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c1}  \\ \\${c0}__/  |       ${lc}SHELL:     ${ic}${shell}${reset}
+${c1}   \\${c0}(_____/       ${lc}${envtype}        ${ic}${WM}${reset}
 
 EOF
