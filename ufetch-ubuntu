@@ -6,7 +6,7 @@
 
 # user is already defined
 host="$(hostname)"
-os='Ubuntu'
+os="$(lsb_release -ds)"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(dpkg -l | wc -l)"
@@ -53,12 +53,12 @@ c0="${reset}${bold}${yellow}"		# first color
 
 cat <<EOF
 
-                ${lc}${USER}${ic}@${lc}${host}${reset}
-${c0}       ---( )   ${lc}OS:        ${ic}${os}${reset}
-${c0}    /  ---  \\   ${lc}KERNEL:    ${ic}${kernel}${reset} 
-${c0}  ( ) |   |     ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}    \\  ---  /   ${lc}PACKAGES:  ${ic}${packages}${reset} 
-${c0}       ---( )   ${lc}SHELL:     ${ic}${shell}${reset}
-                ${lc}${envtype}        ${ic}${WM}${reset}
+${c0}           _   ${lc}${USER}${ic}@${lc}${host}${reset}
+${c0}       ---(_)  ${lc}OS:        ${ic}${os}${reset}
+${c0}   _/  ---  \\  ${lc}KERNEL:    ${ic}${kernel}${reset} 
+${c0}  (_) |   |    ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}    \\  --- _/  ${lc}PACKAGES:  ${ic}${packages}${reset} 
+${c0}       ---(_)  ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}               ${lc}${envtype}        ${ic}${WM}${reset}
 
 EOF
