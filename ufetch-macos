@@ -21,7 +21,7 @@ else
 	packages='no package manager'
 fi
 packages="$(echo ${packages} | sed -e 's/^[ /t]*//')"
-shell="$(basename ${SHELL})"
+shell="$(basename "$SHELL")"
 if [ -z "${WM}" ]; then
 	WM='Quartz Compositor'
 fi

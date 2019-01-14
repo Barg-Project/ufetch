@@ -9,7 +9,7 @@ host=`hostname`
 os=`uname -sr`
 kernel=`uname -v`
 uptime=`uptime | awk '{print $3" "$4}' | tr -d ,`
-shell=`basename ${SHELL}`
+shell=`basename "$SHELL"`
 
 ## DEFINE COLORS
 
