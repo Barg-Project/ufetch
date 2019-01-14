@@ -53,11 +53,11 @@ c0="${reset}${bold}${cyan}"		# first color
 
 cat <<EOF
 ${c0}  ______          
-${c0}  \\   _ \\        __  ${lc}${USER}${ic}@${lc}${host}${reset}          
+${c0}  \\   _ \\        __  ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c0}   \\ \\ \\ \\      / /  ${lc}OS:        ${ic}${os}${reset}
-${c0}    \\ \\_\\ \\    / /   ${lc}KERNEL:    ${ic}${kernel}${reset}    
+${c0}    \\ \\_\\ \\    / /   ${lc}KERNEL:    ${ic}${kernel}${reset}
 ${c0}     \\  ___\\  /_/    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}      \\ \\    _       ${lc}PACKAGES:  ${ic}${packages}${reset} 
+${c0}      \\ \\    _       ${lc}PACKAGES:  ${ic}${packages}${reset}
 ${c0}     __\\_\\__(_)_     ${lc}SHELL:     ${ic}${shell}${reset}
 ${c0}    (___________)    ${lc}${envtype}        ${ic}${WM}${reset}
 

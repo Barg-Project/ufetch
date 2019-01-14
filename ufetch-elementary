@@ -54,7 +54,7 @@ c1="${reset}${white}"		# second color
 
 cat <<EOF
 
-${c1}    _______    ${lc}${USER}${ic}@${lc}${host}${reset}
+${c1}    _______    ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c1}   / ${c0}____  ${c1}\\   ${lc}OS:        ${ic}${os}${reset}
 ${c1}  /  ${c0}|  /  /${c1}\\  ${lc}KERNEL:    ${ic}${kernel}${reset}
 ${c1}  |${c0}__\\ /  /${c1} |  ${lc}UPTIME:    ${ic}${uptime}${reset}
