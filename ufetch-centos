@@ -44,13 +44,13 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${magenta}"		# labels
-nc="${reset}${bold}${magenta}"		# user and hostname
-ic="${reset}${bold}${white}"		# info
-c0="${reset}${bold}${green}"		# first color
-c1="${reset}${bold}${yellow}"		# second color
-c2="${reset}${bold}${magenta}"		# third color
-c3="${reset}${bold}${blue}"		# fourth color
+lc="${reset}${bold}${magenta}"      # labels
+nc="${reset}${bold}${magenta}"      # user and hostname
+ic="${reset}${bold}${white}"        # info
+c0="${reset}${bold}${green}"        # first color
+c1="${reset}${bold}${yellow}"       # second color
+c2="${reset}${bold}${magenta}"      # third color
+c3="${reset}${bold}${blue}"         # fourth color
 
 ## OUTPUT
 
