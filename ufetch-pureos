@@ -53,7 +53,7 @@ c0="${reset}${bold}${white}"    # first color
 
 cat <<EOF
 
-${c0}   _____________   ${lc}${USER}${ic}@${lc}${host}${reset}
+${c0}   _____________   ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c0}  |  _________  |  ${lc}OS:        ${ic}${os}${reset}
 ${c0}  | |         | |  ${lc}KERNEL:    ${ic}${kernel}${reset}
 ${c0}  | |         | |  ${lc}UPTIME:    ${ic}${uptime}${reset}
