@@ -4,8 +4,9 @@
 
 ## INFO
 
-# user is already defined host="$(hostname)" os="$(lsb_release -ds)"
-os="$(lsb_release -ds | tr -d \")"
+# user is already defined
+host="$(hostname)"
+os="$(lsb_release -ds)"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(yum list installed | wc -l)"
