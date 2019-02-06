@@ -10,7 +10,7 @@ os="$(lsb_release -ds)"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(dpkg -l | wc -l)"
-shell="$(basename ${SHELL})"
+shell="$(basename "$SHELL")"
 
 if [ -z "${WM}" ]; then
 	if [ "${XDG_CURRENT_DESKTOP}" ]; then
@@ -44,20 +44,20 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${cyan}"		# labels
-nc="${reset}${bold}${cyan}"		# user and hostname
-ic="${reset}${bold}${white}"		# info
-c0="${reset}${bold}${cyan}"		# first color
+lc="${reset}${bold}${cyan}"         # labels
+nc="${reset}${bold}${cyan}"         # user and hostname
+ic="${reset}${bold}${white}"        # info
+c0="${reset}${bold}${cyan}"         # first color
 
 ## OUTPUT
 
 cat <<EOF
 ${c0}  ______          
-${c0}  \\   _ \\        __  ${lc}${USER}${ic}@${lc}${host}${reset}          
+${c0}  \\   _ \\        __  ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c0}   \\ \\ \\ \\      / /  ${lc}OS:        ${ic}${os}${reset}
-${c0}    \\ \\_\\ \\    / /   ${lc}KERNEL:    ${ic}${kernel}${reset}    
+${c0}    \\ \\_\\ \\    / /   ${lc}KERNEL:    ${ic}${kernel}${reset}
 ${c0}     \\  ___\\  /_/    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}      \\ \\    _       ${lc}PACKAGES:  ${ic}${packages}${reset} 
+${c0}      \\ \\    _       ${lc}PACKAGES:  ${ic}${packages}${reset}
 ${c0}     __\\_\\__(_)_     ${lc}SHELL:     ${ic}${shell}${reset}
 ${c0}    (___________)    ${lc}${envtype}        ${ic}${WM}${reset}
 

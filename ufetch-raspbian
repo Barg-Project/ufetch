@@ -10,7 +10,7 @@ os='Raspbian'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(dpkg -l | wc -l)"
-shell="$(basename ${SHELL})"
+shell="$(basename "$SHELL")"
 
 if [ -z "${WM}" ]; then
 	if [ "${XDG_CURRENT_DESKTOP}" ]; then
@@ -44,17 +44,17 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${red}"		# labels
-nc="${reset}${bold}${red}"		# user and hostname
-ic="${reset}${bold}${white}"		# info
-c0="${reset}${bold}${green}"		# first color
-c1="${reset}${bold}${red}"		# second color
+lc="${reset}${bold}${red}"          # labels
+nc="${reset}${bold}${red}"          # user and hostname
+ic="${reset}${bold}${white}"        # info
+c0="${reset}${bold}${green}"        # first color
+c1="${reset}${bold}${red}"          # second color
 
 ## OUTPUT
 
 cat <<EOF
 
-${c0}    __  __    ${lc}${USER}${ic}@${lc}${host}${reset}
+${c0}    __  __    ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c0}   (_\\)(/_)   ${lc}OS:        ${ic}${os}${reset}
 ${c1}   (_(__)_)   ${lc}KERNEL:    ${ic}${kernel}${reset}
 ${c1}  (_(_)(_)_)  ${lc}UPTIME:    ${ic}${uptime}${reset}
