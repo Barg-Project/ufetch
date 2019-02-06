@@ -9,7 +9,7 @@ host=`hostname`
 os=`uname -sr`
 kernel=`uname -v`
 uptime=`uptime | awk '{print $3" "$4}' | tr -d ,`
-shell=`basename ${SHELL}`
+shell=`basename "$SHELL"`
 
 ## DEFINE COLORS
 
@@ -18,10 +18,10 @@ bold=`tput bold`
 reset=`tput sgr0`
 
 # you can change these
-lc="${reset}${bold}"	# labels
-nc="${reset}${bold}"	# user and hostname
-ic="${reset}"			# info
-c0="${reset}"			# first color
+lc="${reset}${bold}"                # labels
+nc="${reset}${bold}"                # user and hostname
+ic="${reset}"                       # info
+c0="${reset}"                       # first color
 
 ## OUTPUT
 

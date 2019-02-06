@@ -10,7 +10,7 @@ os='Manjaro'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
-shell="$(basename ${SHELL})"
+shell="$(basename "$SHELL")"
 
 if [ -z "${WM}" ]; then
 	if [ "${XDG_CURRENT_DESKTOP}" ]; then
@@ -44,10 +44,10 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${green}"		# labels
-nc="${reset}${bold}${green}"		# user and hostname
-ic="${reset}${bold}${white}"		# info
-c0="${reset}${green}"			# first color
+lc="${reset}${bold}${green}"        # labels
+nc="${reset}${bold}${green}"        # user and hostname
+ic="${reset}${bold}${white}"        # info
+c0="${reset}${bold}${green}"        # first color
 
 ## OUTPUT
 

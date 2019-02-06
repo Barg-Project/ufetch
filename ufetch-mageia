@@ -4,12 +4,13 @@
 
 ## INFO
 
-# user is already defined host="$(hostname)" os="$(lsb_release -ds)"
-os="$(lsb_release -ds | tr -d \")"
+# user is already defined
+host="$(hostname)"
+os="$(lsb_release -ds)"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(yum list installed | wc -l)"
-shell="$(basename ${SHELL})"
+shell="$(basename "$SHELL")"
 
 if [ -z "${WM}" ]; then
 	if [ "${XDG_CURRENT_DESKTOP}" ]; then
@@ -43,11 +44,11 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${blue}"		# labels
-nc="${reset}${bold}${blue}"		# user and hostname
-ic="${reset}${bold}${white}"		# info
-c0="${reset}${bold}${white}"		# first color
-c1="${reset}${bold}${cyan}"		# second color
+lc="${reset}${bold}${blue}"         # labels
+nc="${reset}${bold}${blue}"         # user and hostname
+ic="${reset}${bold}${white}"        # info
+c0="${reset}${bold}${white}"        # first color
+c1="${reset}${bold}${cyan}"         # second color
 
 ## OUTPUT
 
