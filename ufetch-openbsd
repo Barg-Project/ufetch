@@ -51,7 +51,6 @@ c0="${reset}${yellow}"              # first color
 c1="${reset}${white}"               # second color
 c2="${reset}${bold}${yellow}"       # third color
 
-
 ## OUTPUT
 
 cat <<EOF
