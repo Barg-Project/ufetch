@@ -12,19 +12,29 @@ uptime="$(uptime -p | sed 's/up //')"
 packages="$(dpkg -l | wc -l)"
 shell="$(basename "$SHELL")"
 
-if [ -z "${WM}" ]; then
-	if [ "${XDG_CURRENT_DESKTOP}" ]; then
-		envtype='DE:'
-		WM="${XDG_CURRENT_DESKTOP}"
-	elif [ "${DESKTOP_SESSION}" ]; then
-		envtype='DE:'
-		WM="${DESKTOP_SESSION}"
-	elif [ -f "${HOME}/.xinitrc" ]; then
-		envtype='WM:'
-		WM="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
-	fi
+## UI DETECTION
+
+if [ -n "${DE}" ]; then
+        ui="${DE}"
+        uitype='DE'
+elif [ -n "${WM}" ]; then
+        ui="${WM}"
+        uitype='WM'
+elif [ -n "${XDG_CURRENT_DESKTOP}" ]; then
+        ui="${XDG_CURRENT_DESKTOP}"
+        uitype='DE'
+elif [ -n "${DESKTOP_SESSION}" ]; then
+        ui="${DESKTOP_SESSION}"
+        uitype='DE'
+elif [ -f "${HOME}/.xinitrc" ]; then
+        ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+        uitype='WM'
+elif [ -f "${HOME}/.xsession" ]; then
+        ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
+        uitype='WM'
 else
-	envtype='WM:'
+        ui='unknown'
+        uitype='UI'
 fi
 
 ## DEFINE COLORS
@@ -44,8 +54,8 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${green}"        # labels
-nc="${reset}${bold}${green}"        # user and hostname
+lc="${reset}${bold}${blue}"         # labels
+nc="${reset}${bold}${blue}"         # user and hostname
 ic="${reset}${bold}${white}"        # info
 c0="${reset}${bold}${white}"        # first color
 c1="${reset}${white}"               # second color
@@ -60,6 +70,6 @@ ${c1}  /  ${c0}|  /  /${c1}\\  ${lc}KERNEL:    ${ic}${kernel}${reset}
 ${c1}  |${c0}__\\ /  /${c1} |  ${lc}UPTIME:    ${ic}${uptime}${reset}
 ${c1}  \\   ${c0}/__/${c1}  /  ${lc}PACKAGES:  ${ic}${packages}${reset}
 ${c1}   \\_______/   ${lc}SHELL:     ${ic}${shell}${reset}
-${c1}               ${lc}${envtype}        ${ic}${WM}${reset}
+${c1}               ${lc}${uitype}:        ${ic}${ui}${reset}
 
 EOF

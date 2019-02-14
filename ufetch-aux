@@ -9,7 +9,13 @@ host=`hostname`
 os=`uname -sr`
 kernel=`uname -v`
 uptime=`uptime | awk '{print $3" "$4}' | tr -d ,`
+packages='unknown'
 shell=`basename "$SHELL"`
+
+## UI DETECTION
+
+ui='unknown'
+uitype='UI'
 
 ## DEFINE COLORS
 
@@ -25,12 +31,12 @@ c0="${reset}"                       # first color
 
 ## OUTPUT
 
-echo "
-${c0}         (/
-${c0}    .---__--.   ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}   /         \  ${lc}OS:      ${ic}${os}${reset}
-${c0}  |         /   ${lc}KERNEL:  ${ic}${kernel}${reset}
-${c0}  |         \\_  ${lc}UPTIME:  ${ic}${uptime}${reset}
-${c0}   \         /  ${lc}SHELL:   ${ic}${shell}${reset}
-${c0}    \`._.-._.\`
+echo "${c0}          _${reset}
+${c0}         (/     ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}    .---__--.   ${lc}OS:        ${ic}${os}${reset}
+${c0}   /         \  ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0}  |         /   ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0}  |         \\_  ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}   \         /  ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}    \`._.-._.\`   ${lc}${uitype}:        ${ic}${ui}${reset}
 "
