@@ -54,24 +54,21 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${cyan}"         # labels
-nc="${reset}${bold}${cyan}"         # user and hostname
+lc="${reset}${bold}${blue}"         # labels
+nc="${reset}${bold}${blue}"         # user and hostname
 ic="${reset}${bold}${white}"        # info
-c0="${reset}${bold}${cyan}"         # first color
-c1="${reset}${bold}${blue}"         # second color
-c2="${reset}${bold}${green}"        # third color
+c0="${reset}${bold}${blue}"         # first color
 
 ## OUTPUT
 
 cat <<EOF
-${c1}              _${reset}
-${c0}           _ ${c1}/ /        ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}        _ / ${c1}/ /\\        ${lc}OS:        ${ic}${os}${reset}  
-${c0}       / / ${c1}/ /\\ \\       ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}      / / ${c1}/ /  \\ \\ ${c2}_    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c2}   _ ${c0}/ / ${c1}/ /${c2}------\`_|   ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c2}  |_${c0}/ / ${c1}/_/${c2}-------\`     ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}   / /_/          ${c1}\\ \\   ${lc}${uitype}:        ${ic}${ui}${reset}
-${c0}  /_/              ${c1}\\_\\${reset}
+
+${c0}        /\\        ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}       /  \\       ${lc}OS:        ${ic}${os}${reset}
+${c0}      /\`'.,\\      ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0}     /     ',     ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}    /      ,\`\\    ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0}   /   ,.'\`.  \\   ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}  /.,'\`     \`'.\\  ${lc}${uitype}:        ${ic}${ui}${reset}
 
 EOF
