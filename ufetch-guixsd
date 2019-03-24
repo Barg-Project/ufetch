@@ -15,26 +15,26 @@ shell="$(basename "$SHELL")"
 ## UI DETECTION
 
 if [ -n "${DE}" ]; then
-        ui="${DE}"
-        uitype='DE'
+	ui="${DE}"
+	uitype='DE'
 elif [ -n "${WM}" ]; then
-        ui="${WM}"
-        uitype='WM'
+	ui="${WM}"
+	uitype='WM'
 elif [ -n "${XDG_CURRENT_DESKTOP}" ]; then
-        ui="${XDG_CURRENT_DESKTOP}"
-        uitype='DE'
+	ui="${XDG_CURRENT_DESKTOP}"
+	uitype='DE'
 elif [ -n "${DESKTOP_SESSION}" ]; then
-        ui="${DESKTOP_SESSION}"
-        uitype='DE'
+	ui="${DESKTOP_SESSION}"
+	uitype='DE'
 elif [ -f "${HOME}/.xinitrc" ]; then
-        ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
-        uitype='WM'
+	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+	uitype='WM'
 elif [ -f "${HOME}/.xsession" ]; then
-        ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
-        uitype='WM'
+	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
+	uitype='WM'
 else
-        ui='unknown'
-        uitype='UI'
+	ui='unknown'
+	uitype='UI'
 fi
 
 ## DEFINE COLORS
