@@ -6,10 +6,10 @@
 
 # user is already defined
 host="$(hostname)"
-os='Debian'
+os="Debian $(cat /etc/debian_version)"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
-packages="$(dpkg -l | wc -l)"
+packages="$(dpkg -l | grep -c ^i)"
 shell="$(basename "$SHELL")"
 
 ## UI DETECTION
@@ -31,6 +31,12 @@ elif [ -f "${HOME}/.xinitrc" ]; then
 	uitype='WM'
 elif [ -f "${HOME}/.xsession" ]; then
 	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
+	uitype='WM'
+elif [ -h /etc/alternatives/x-session-manager ]; then
+	ui="$(update-alternatives --query x-session-manager | awk -F'/' '/Value/{print $4}')"
+	uitype='DE'
+elif [ -h /etc/alternatives/x-window-manager ]; then
+	ui="$(update-alternatives --query x-window-manager | awk -F'/' '/Value/{print $4}')"
 	uitype='WM'
 else
 	ui='unknown'
