@@ -62,7 +62,7 @@ fi
 # you can change these
 lc="${reset}${bold}${red}"          # labels
 nc="${reset}${bold}${red}"          # user and hostname
-ic="${reset}${bold}${white}"        # info
+ic="${reset}"                       # info
 c0="${reset}${bold}${red}"          # first color
 c1="${reset}${red}"                 # second color
 
