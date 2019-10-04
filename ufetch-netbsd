@@ -56,8 +56,8 @@ fi
 # you can change these
 lc="${reset}${bold}${yellow}"       # labels
 nc="${reset}${bold}${yellow}"       # user and hostname
-ic="${reset}${bold}${white}"        # info
-c0="${reset}${white}"               # first color
+ic="${reset}"                       # info
+c0="${reset}"                       # first color
 c1="${reset}${yellow}"              # second color
 
 ## OUTPUT

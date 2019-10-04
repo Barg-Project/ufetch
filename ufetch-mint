@@ -56,21 +56,21 @@ fi
 # you can change these
 lc="${reset}${bold}${green}"        # labels
 nc="${reset}${bold}${green}"        # user and hostname
-ic="${reset}${bold}${white}"        # info
+ic="${reset}"                       # info
 c0="${reset}${green}"               # first color
-c1="${reset}${bold}${white}"        # second color
+c1="${reset}${white}"               # second color
 c2="${reset}${bold}${green}"        # third color
 
 ## OUTPUT
 
 cat <<EOF
 
-${c0}   ___________   ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}  |_          \\  ${lc}OS:        ${ic}${os}${reset}
-${c0}    | ${c1}| _____ ${c0}|  ${lc}KERNEL:    ${ic}${kernel}${reset} 
-${c0}    | ${c1}| | | | ${c0}|  ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}    | ${c1}| | | | ${c0}|  ${lc}PACKAGES:  ${ic}${packages}${reset} 
-${c0}    | ${c1}\\__${c2}___/ ${c0}|  ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}    \\_________/  ${lc}${uitype}:        ${ic}${ui}${reset}
+${c0}   _____________   ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}  |_            \\  ${lc}OS:        ${ic}${os}${reset}
+${c0}    |  ${c1}| _____  ${c0}|  ${lc}KERNEL:    ${ic}${kernel}${reset} 
+${c0}    |  ${c1}| | | |  ${c0}|  ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}    |  ${c1}| | | |  ${c0}|  ${lc}PACKAGES:  ${ic}${packages}${reset} 
+${c0}    |  ${c1}\\__${c2}___/  ${c0}|  ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}    \\___________/  ${lc}${uitype}:        ${ic}${ui}${reset}
 
 EOF
