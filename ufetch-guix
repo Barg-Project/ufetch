@@ -1,15 +1,15 @@
 #!/bin/sh
 #
-# ufetch-guixsd - tiny system info for guixsd
+# ufetch-guix - tiny system info for guixsd
 
 ## INFO
 
 # user is already defined
 host="$(hostname)"
-os='GuixSD'
+os='Guix System'
 kernel="$(uname -sr)"
-uptime="$(uptime -p | sed 's/up //')"
-packages="$(guix --list-installed | wc -l)"
+uptime="$(uptime | sed 's/.*up \([^,]*\).*/\1/')"
+packages="$(guix package --list-installed | wc -l)"
 shell="$(basename "$SHELL")"
 
 ## UI DETECTION
