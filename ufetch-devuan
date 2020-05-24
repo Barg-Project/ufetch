@@ -70,12 +70,12 @@ c1="${reset}${magenta}"                 # second color
 
 cat <<EOF
 
-${c1}    -,.             ${nc}${USER}${ic}@${nc}${host}${reset}
-${c1}       ''-.,        ${lc}OS:        ${ic}${os}${reset}
-${c1}            "';     ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c1}               ;    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c1}               ;    ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c0}           _.-"     ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}     _,--''         ${lc}${uitype}:        ${ic}${ui}${reset}
+${c1}  -.,            ${nc}${USER}${ic}@${nc}${host}${reset}
+${c1}     \`'-.,       ${lc}OS:        ${ic}${os}${reset}
+${c1}          \`':.   ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c1}             ::  ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c1}        __--\`:\`  ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0}   _,--\` _.-\`    ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}  :_,--\`\`        ${lc}${uitype}:        ${ic}${ui}${reset}
 
 EOF
