@@ -63,19 +63,18 @@ fi
 lc="${reset}${bold}${red}"          # labels
 nc="${reset}${bold}${red}"          # user and hostname
 ic="${reset}"                       # info
-c0="${reset}${bold}${red}"          # first color
-c1="${reset}${red}"                 # second color
+c0="${reset}${red}"                 # first color
 
 ## OUTPUT
 
 cat <<EOF
 
-${c0}    _____    ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}   /  __ \\   ${lc}OS:        ${ic}${os}${reset}
-${c0}  |  /    |  ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}  |  ${c1}\\___-   ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c1}  -_         ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c1}    --_      ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}             ${lc}${uitype}:        ${ic}${ui}${reset}
+${c0}     ,---._   ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}   /\`  __  \\  ${lc}OS:        ${ic}${os}${reset}
+${c0}  |   /    |  ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0}  |   ${c1}\`.__.\`  ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}   \          ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0}    \`-,_      ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}              ${lc}${uitype}:        ${ic}${ui}${reset}
 
 EOF
