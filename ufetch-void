@@ -36,6 +36,7 @@ else
 	ui='unknown'
 	uitype='UI'
 fi
+ui="$(basename ${ui})"
 
 ## DEFINE COLORS
 

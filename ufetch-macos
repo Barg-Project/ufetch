@@ -5,7 +5,7 @@
 ## INFO
 
 # user is already defined
-host="$(hostname)"
+host="$(hostname -s)"
 os="$(sw_vers -productName) $(sw_vers -productVersion)"
 kernel="$(uname -sr)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
@@ -39,6 +39,7 @@ else
 	ui='Aqua'
 	uitype='UI'
 fi
+ui="$(basename ${ui})"
 
 ## DEFINE COLORS
 
