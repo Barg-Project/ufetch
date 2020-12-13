@@ -9,7 +9,7 @@ host="$(hostname -s)"
 os="$(sw_vers -productName) $(sw_vers -productVersion)"
 kernel="$(uname -sr)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
-shell="$(basename "$SHELL")"
+shell="$(basename "${SHELL}")"
 
 ## PACKAGE MANAGER DETECTION
 
@@ -25,7 +25,7 @@ else
 	packages='unknown'
 fi
 
-packages="$(echo ${packages} | sed -e 's/^[ /t]*//')"
+packages="$(echo "${packages}" | sed -e 's/^[ /t]*//')"
 
 ## UI DETECTION
 
@@ -39,7 +39,8 @@ else
 	ui='Aqua'
 	uitype='UI'
 fi
-ui="$(basename ${ui})"
+
+ui="$(basename "${ui}")"
 
 ## DEFINE COLORS
 

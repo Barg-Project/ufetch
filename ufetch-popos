@@ -10,10 +10,21 @@ os="$(lsb_release -ds)"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(dpkg -l | wc -l)"
-shell="$(basename "$SHELL")"
+shell="$(basename "${SHELL}")"
 
 ## UI DETECTION
 
+parse_rcs() {
+	for f in "${@}"; do
+		wm="$(tail -n 1 "${f}" 2> /dev/null | cut -d ' ' -f 2)"
+		[ -n "${wm}" ] && echo "${wm}" && return
+	done
+}
+
+rcwm="$(parse_rcs "${HOME}/.xinitrc" "${HOME}/.xsession")"
+
+ui='unknown'
+uitype='UI'
 if [ -n "${DE}" ]; then
 	ui="${DE}"
 	uitype='DE'
@@ -26,17 +37,14 @@ elif [ -n "${XDG_CURRENT_DESKTOP}" ]; then
 elif [ -n "${DESKTOP_SESSION}" ]; then
 	ui="${DESKTOP_SESSION}"
 	uitype='DE'
-elif [ -f "${HOME}/.xinitrc" ]; then
-	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+elif [ -n "${rcwm}" ]; then
+	ui="${rcwm}"
 	uitype='WM'
-elif [ -f "${HOME}/.xsession" ]; then
-	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
-	uitype='WM'
-else
-	ui='unknown'
-	uitype='UI'
+elif [ -n "${XDG_SESSION_TYPE}" ]; then
+	ui="${XDG_SESSION_TYPE}"
 fi
-ui="$(basename ${ui})"
+
+ui="$(basename "${ui}")"
 
 ## DEFINE COLORS
 
@@ -63,7 +71,7 @@ c0="${reset}${cyan}"                # first color
 ## OUTPUT
 
 cat <<EOF
-${c0}  ______          
+${c0}  ______
 ${c0}  \\   _ \\        __  ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c0}   \\ \\ \\ \\      / /  ${lc}OS:        ${ic}${os}${reset}
 ${c0}    \\ \\_\\ \\    / /   ${lc}KERNEL:    ${ic}${kernel}${reset}

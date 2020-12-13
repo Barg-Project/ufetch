@@ -10,7 +10,7 @@ os=`uname -sr`
 kernel=`uname -v`
 uptime=`uptime | awk '{print $3" "$4}' | tr -d ,`
 packages='unknown'
-shell=`basename "$SHELL"`
+shell=`basename "${SHELL}"`
 
 ## UI DETECTION
 
