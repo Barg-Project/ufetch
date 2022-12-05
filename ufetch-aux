@@ -20,8 +20,8 @@ uitype='UI'
 ## DEFINE COLORS
 
 # probably don't change these
-bold=`tput bold`
-reset=`tput sgr0`
+bold=`tput bold 2> /dev/null`
+reset=`tput sgr0 2> /dev/null`
 
 # you can change these
 lc="${reset}${bold}"                # labels
