@@ -13,7 +13,9 @@ shell="$(basename "${SHELL}")"
 
 ## PACKAGE MANAGER DETECTION
 
-if [ -x "$(command -v pkgin)" ]; then
+if [ -x "$(command -v nix-info)" ]; then
+	packages="$(ls -d -1 /nix/store/*/ | wc -l)"
+elif [ -x "$(command -v pkgin)" ]; then
 	packages="$(pkgin list | wc -l)"
 elif [ -x "$(command -v brew)" ]; then
 	brew_packages="$(brew list --formulae | wc -l)"
